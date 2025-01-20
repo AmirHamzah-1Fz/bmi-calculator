@@ -16,47 +16,52 @@
 </head>
 <body>
     <header>
-        <!-- NAVBAR START -->
-        <nav>
-            <!-- LEFT ITEMS -->
-             <ul class="nav-left">
-                <li><a href="#home"><h1>BMI Calculator+</h1></a></li>
-             </ul>
+        <section id="home">
+            <!-- NAVBAR START -->
+            <nav>
+                <!-- LEFT ITEMS -->
+                <ul class="nav-left">
+                    <li><a href="#home"><h1>BMI Calculator+</h1></a></li>
+                </ul>
 
-            <!-- RIGHT ITEMS -->
-            <ul class="nav-right">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#service">Service</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </nav>
-        <!-- NAVBAR END -->
+                <!-- RIGHT ITEMS -->
+                <ul class="nav-right">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Service</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
 
-        <!-- JUMBOTRON START -->
-        <div class="jumbotron">
+                <ul id="itemExtra" class="item-extra">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></li>
+                </ul>
+            </nav>
+            <!-- NAVBAR END -->
 
-            <!-- JUMBOTRON CONTENT -->
-            <div class="jumbotron-content">
-                <h1>BMI Calculator+</h1>
-                <p>Pantau kesehatan berat badan Anda dengan cepat dan mudah, di mana saja.</p>
+            <!-- JUMBOTRON START -->
+            <div class="jumbotron">
+
+                <!-- JUMBOTRON CONTENT -->
+                <div class="jumbotron-content">
+                    <h1>BMI Calculator+</h1>
+                    <p>Pantau kesehatan berat badan Anda dengan cepat dan mudah, di mana saja.</p>
 
 
-                <!-- TOMBOL CTA -->
-                <div class="cta-button">
-                    <a href="#about" class="about">Tentang
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="#service" class="service">Menu Utama</a>
+                    <!-- TOMBOL CTA -->
+                    <div class="cta-button">
+                        <a href="#about" class="about">Tentang
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="#service" class="service">Menu Utama</a>
+                    </div>
+                </div>
+
+                <div class="jumbotron-bg">
+                    <img src="assets\img\Jogja.jpg" alt="jogja.jpg">
                 </div>
             </div>
-
-            <div class="jumbotron-bg">
-                <img src="assets\img\Jogja.jpg" alt="jogja.jpg">
-            </div>
-        </div>
-        <!-- JUMBOTRON END -->
-
+            <!-- JUMBOTRON END -->
+        </section>
     </header>
 
     <main>
@@ -98,8 +103,43 @@
                     </tr>
                 </table>
 
+                <!-- MENU UTAMA -->
                 <section id="service">
-                    
+                    <div class="service-content-container">
+                        <div class="bmi-calculator-container">
+                            <div class="bmi-header">
+                                <h2>Kalkulasi</h2>
+                            </div>
+
+                            <div class="bmi-calculator-content">
+                                <form class="form-container">
+                                    <div class="berat-badan-form">
+                                        <label for="beratBadan">Berat Badan (kg)</label>
+                                        <input id="beratBadan" type="number" required>
+                                    </div>
+
+                                    <div class="tinggi-badan-form">
+                                        <label for="tinggiBadan">Tinggi Badan (cm)</label>
+                                        <input id="tinggiBadan" type="number" required>
+                                    </div>
+
+                                    <button id="submitBmi" type="submit">Lihat Hasil</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="bmiResultContainer" class="bmi-result-container">
+                            <div class="bmi-result-content">
+                                <h3>Hasil</h3>
+
+                                <div class="bmi-result">
+                                    <h2 id="resultBmi">0</h2>
+                                </div>
+
+                                <h2 id="resultCategory">Hasil akan muncul di sini</h2>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
 

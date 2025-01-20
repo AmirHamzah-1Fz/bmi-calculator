@@ -1,346 +1,594 @@
 /* 
 !! Inisialisasi konfigurasi awal !!
  */
-*::before,
-*::after,
-* {
-    box-sizing: border-box;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-
-    &::selection {
-        background-color: var(--primary);
-        color: var(--secondary);
-    }
-}
-
-img, svg, a {
-    user-select: none;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', serif;
-    height: 300vh;
-}
-
-:root {
-    --primary: #14B8A6;
-    --secondary: #fff;
-
-    --text-fade: rgba(0, 0, 0, 40%);
-}
-
-/* 
-!! NAVBAR STYLING !!
- */
-
-
- /*
- !!!!!!! MEDIA QUERIES START !!!!!!!!!!
+ *::before,
+ *::after,
+ * {
+     box-sizing: border-box;
+     text-decoration: none;
+     margin: 0;
+     padding: 0;
+     border: none;
+ 
+     &::selection {
+         background-color: var(--primary);
+         color: var(--secondary);
+     }
+ }
+ 
+ img, svg, a {
+     user-select: none;
+ }
+ 
+ html {
+     scroll-behavior: smooth;
+ }
+ 
+ body {
+     font-family: 'Inter', serif;
+     height: 300vh;
+ }
+ 
+ :root {
+     --primary: #14B8A6;
+     --secondary: #fff;
+ 
+     --text-fade: rgba(0, 0, 0, 40%);
+ }
+ 
+ /* 
+ !! NAVBAR STYLING !!
   */
-
-/* Ponsel */
-@media screen and (max-width: 768px) {
-    /* NAVBAR */
-    header nav {
-        padding-inline: 2rem;
-    }
-
-    .nav-right {
-        display: none;
-    }
-
-    /* JUMBOTRON */
-    div .jumbotron-content h1 {
-        font-size: 2rem;
-    }
-
-    div .jumbotron-content p {
-        width: 85%;
-    }
-
-    /* MAIN CONTENT */
-    main .content-container {
-        flex-direction: column;
-        padding-inline-start: 0 !important; /* Menambahkan "!important" agar properti yang ditulis menjadi diprioritaskan */
-        padding-inline: 2rem !important;
-    }
-
-    main .main-content-container, .aside-content-container {
-        width: 100%;
-    }
-}
-  
-/*
-!!!!!!! MEDIA QUERIES END !!!!!!!!!!
-*/
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 60px;
-    background-color: var(--secondary);
-    box-shadow: 0px 0px 30px 0px #00000016;
-    padding-inline: 4rem;
-}
-
-nav ul {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-}
-
-nav .nav-right li a {
-    text-align: end;
-    padding-inline: 12px;
-    padding-block: 6px;
-    color: var(--primary);
-    background-color: transparent;
-    transition: all 200ms ease-in-out;
-    border-radius: 12px;
-    font-weight: 500;
-
-    &:hover {
-        background-color: var(--primary);
-        color: var(--secondary);
-    }
-}
-
-nav .nav-left li a {
-    text-align: start;
-    color: var(--primary);
-}
-
-
-/* 
-!! JUMBOTRON CONTENT STYLING !!
-*/
-
-.jumbotron {
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    padding-top: 60px;
-    display: flex;
-    background-color: #14B8A6ea;
-    justify-content: center;
-    align-items: center;
-    color: var(--secondary);
-    overflow: hidden;
-}
-
-.jumbotron-bg {
-    position: absolute;
-    z-index: -100;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.jumbotron-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.jumbotron-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 100;
-}
-
-.jumbotron-content h1 {
-    font-weight: 800;
-    font-size: 4rem;
-    color: inherit;
-}
-
-.jumbotron-content p {
-    margin-top: 0.6rem;
-    color: rgba(255, 255, 255, 80%);
-}
-
-.cta-button {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: 500;
-    gap: 8px;
-    
-    &.cta-button a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2px;
-        
-    }
-
-    &.cta-button a svg {
-        transform: rotate(-45deg);
-        transition: all 100ms ease-in-out;
-    }
-}
-
-.cta-button .about {
-    background-color: transparent;
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
-    padding-inline: 1.4rem;
-    padding-block: 0.7rem;
-    border-radius: 12px;
-    transition: all 400ms ease-in-out;
-    
-    &:hover {
-        border: 1px solid transparent;
-        background-color: var(--secondary);
-        color: var(--primary);
-    }
-
-    &:hover svg {
-        transform: rotate(0deg);
-    }
-}
-
-.cta-button .service {
-    background-color: var(--secondary);
-    border: 1px solid transparent;
-    color: var(--primary);
-    padding-inline: 1.4rem;
-    padding-block: 0.7rem;
-    border-radius: 12px;
-    transition: all 400ms ease-in-out;
-
-    &:hover {
-        background-color: transparent;
-        border: 1px solid var(--secondary);
-        color: var(--secondary);
-    }
-}
-
-/* 
-!! MAIN CONTENT STYLING !!
-*/
-
-main {
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
-}
-
-main .content-container {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    width: 100%;
-    padding-inline-start: 5rem;
-}
-
-.main-content-container {
-    width: 65%;
-
-    &.main-content-container h2 {
-        color: var(--primary);
-        font-size: 1.6rem;
-    }
-
-    &.main-content-container p {
-        font-size: 1rem;
-        margin-top: 0.6rem;
-        color: var(--text-fade);
-    }
-}
-
-/*
-!! TABLE STYLING !!
+ 
+ 
+  /*
+  !!!!!!! MEDIA QUERIES START !!!!!!!!!!
+   */
+ 
+ /* Desktop */
+ @media screen and (max-width: 1000px) {
+     /* BMI CALCULATOR */
+     .service-content-container {
+         flex-direction: column;
+     }
+ 
+     .bmi-calculator-container {
+         width: 300px !important;
+     }
+ }
+ 
+ /* Tablet */
+ @media screen and (max-width: 768px) {
+     /* NAVBAR */
+     header nav {
+         padding-inline: 2rem;
+     }
+ 
+     .nav-right {
+         display: none;
+     }
+ 
+     nav #itemExtra {
+         display: block !important;
+     }
+ 
+     /* JUMBOTRON */
+     .jumbotron {
+         height: 50vh !important;
+         margin-top: 60px !important;
+     }
+ 
+     div .jumbotron-content h1 {
+         font-size: 3rem;
+     }
+ 
+     div .jumbotron-content p {
+         width: 85%;
+     }
+ 
+     /* MAIN CONTENT */
+     main .content-container {
+         flex-direction: column;
+         padding-inline-start: 0 !important; /* Menambahkan "!important" agar properti yang ditulis menjadi diprioritaskan */
+         padding-inline: 2rem !important;
+     }
+ 
+     main .main-content-container, .aside-content-container {
+         width: 100%;
+     }
+ 
+     /* BMI Calculator */
+     .service-content-container {
+         justify-content: center !important;
+         align-items: center !important;
+     }
+ }
+ 
+ /* Phone */
+ @media screen and (max-width: 430px){
+     /* NAVBAR */
+     header nav {
+         padding-inline: 1rem !important;
+     }
+ 
+     nav .nav-left {
+         font-size: 0.8rem;
+     }
+ 
+ 
+     /* JUMBOTRON */
+     div .jumbotron-content h1 {
+         font-size: 2rem !important;
+     }
+ 
+     .jumbotron {
+         height: 40vh !important;
+     }
+ }
+ 
+ /*
+ !!!!!!! MEDIA QUERIES END !!!!!!!!!!
  */
-
-table {
-    margin-top: 2rem;
-}
-
-table { 
-    border-collapse: collapse; 
-    width: 100%; 
-}
-
-th, td { 
-    border: 1px solid #00000046;
-    padding: 8px;
-    text-align: left; 
-}
-
-th {
-    background-color: var(--primary);
-    color: var(--secondary);
-}
-
-td {
-    color: var(--primary);
-}
-
-/* 
-!! TABLE STYLING END !!
-*/
-
-/* 
-!! ASIDE CONTENT STYLING !!
-*/
-
-.aside-content-container {
-    width: 300px;
-    height: 600px;
-    border-radius: 1rem;
-    padding: 1rem;
-
-    
-    &.aside-content-container aside h2 {
-        color: var(--primary);
-        font-size: 1.3rem;
-    }
-
-    &.aside-content-container aside a {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--primary);
-        font-size: 1rem;
-
-        &:hover {
-            text-decoration: underline;
-            font-weight: 700;
-        }
-    }
-
-    &.aside-content-container aside .arrow {
-        transform: rotate(-45deg);
-    }
-    
-    &.aside-content-container aside ul {
-        margin-top: 1rem;
-        list-style-type: none;
-        display: flex; /* Menambahkan properti display flex sebagai syarat menggunakan properti gap */
-        
-        flex-direction: column;
-        gap: 6px; /* Menambahkan gap pada hyperlink aside agar tidak terlalu mepet */
-    }
-}
+ 
+ nav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 999;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 100%;
+     height: 60px;
+     background-color: var(--secondary);
+     box-shadow: 0px 0px 30px 0px #00000016;
+     padding-inline: 4rem;
+ }
+ 
+ nav ul {
+     display: flex;
+     align-items: center;
+     list-style-type: none;
+ }
+ 
+ nav .nav-right li a {
+     text-align: end;
+     padding-inline: 12px;
+     padding-block: 6px;
+     color: var(--primary);
+     background-color: transparent;
+     transition: all 200ms ease-in-out;
+     border-radius: 12px;
+     font-weight: 500;
+ 
+     &:hover {
+         background-color: var(--primary);
+         color: var(--secondary);
+     }
+ }
+ 
+ nav .nav-left li a {
+     text-align: start;
+     color: var(--primary);
+ }
+ 
+ nav #itemExtra {
+     display: none;
+     cursor: pointer;
+ 
+     &#itemExtra li svg {
+         stroke: var(--primary);
+     }
+ }
+ 
+ 
+ /* 
+ !! JUMBOTRON CONTENT STYLING !!
+ */
+ 
+ .jumbotron {
+     position: relative;
+     width: 100%;
+     height: 60vh;
+     margin-top: 60px;
+     display: flex;
+     background-color: #14B8A6ef;
+     justify-content: center;
+     align-items: center;
+     color: var(--secondary);
+     overflow: hidden;
+ }
+ 
+ .jumbotron-bg {
+     position: absolute;
+     z-index: -100;
+     top: 0;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .jumbotron-bg img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center;
+     pointer-events: none;
+ }
+ 
+ .jumbotron-content {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     z-index: 100;
+ }
+ 
+ .jumbotron-content h1 {
+     font-weight: 800;
+     font-size: 4rem;
+     color: inherit;
+ }
+ 
+ .jumbotron-content p {
+     margin-top: 0.6rem;
+     color: rgba(255, 255, 255, 80%);
+ }
+ 
+ .cta-button {
+     margin-top: 2rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1.2rem;
+     font-weight: 500;
+     gap: 8px;
+     
+     &.cta-button a {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 2px;
+         
+     }
+ 
+     &.cta-button a svg {
+         transform: rotate(-45deg);
+         transition: all 100ms ease-in-out;
+     }
+ }
+ 
+ .cta-button .about {
+     background-color: transparent;
+     border: 1px solid var(--secondary);
+     color: var(--secondary);
+     padding-inline: 1.4rem;
+     padding-block: 0.7rem;
+     border-radius: 12px;
+     transition: all 400ms ease-in-out;
+     
+     &:hover {
+         border: 1px solid transparent;
+         background-color: var(--secondary);
+         color: var(--primary);
+     }
+ 
+     &:hover svg {
+         transform: rotate(0deg);
+     }
+ }
+ 
+ .cta-button .service {
+     background-color: var(--secondary);
+     border: 1px solid transparent;
+     color: var(--primary);
+     padding-inline: 1.4rem;
+     padding-block: 0.7rem;
+     border-radius: 12px;
+     transition: all 400ms ease-in-out;
+ 
+     &:hover {
+         background-color: transparent;
+         border: 1px solid var(--secondary);
+         color: var(--secondary);
+     }
+ }
+ 
+ /* 
+ !! MAIN CONTENT STYLING !!
+ */
+ 
+ main {
+     display: flex;
+     justify-content: center;
+     margin-top: 5rem;
+ }
+ 
+ main .content-container {
+     display: flex;
+     justify-content: center;
+     gap: 2.5rem;
+     width: 100%;
+     padding-inline-start: 5rem;
+ }
+ 
+ .main-content-container {
+     width: 65%;
+ 
+     &.main-content-container h2 {
+         color: var(--primary);
+         font-size: 1.6rem;
+     }
+ 
+     &.main-content-container p {
+         font-size: 1rem;
+         margin-top: 0.6rem;
+         color: #133b3774;
+     }
+ }
+ 
+ /*
+ !! TABLE STYLING !!
+  */
+ 
+ table {
+     margin-top: 2rem;
+ }
+ 
+ table { 
+     border-collapse: collapse; 
+     width: 100%; 
+ }
+ 
+ th, td { 
+     border: 1px solid #00000046;
+     padding: 8px;
+     text-align: left; 
+ }
+ 
+ th {
+     background-color: var(--primary);
+     color: var(--secondary);
+ }
+ 
+ td {
+     color: var(--primary);
+ }
+ 
+ /* 
+ !! TABLE STYLING END !!
+ */
+ 
+ /* 
+ !! ASIDE CONTENT STYLING !!
+ */
+ 
+ .aside-content-container {
+     width: 300px;
+     height: 600px;
+     border-radius: 1rem;
+     padding: 1rem;
+ 
+     
+     &.aside-content-container aside h2 {
+         color: var(--primary);
+         font-size: 1.3rem;
+     }
+ 
+     &.aside-content-container aside a {
+         width: fit-content;
+         display: flex;
+         align-items: center;
+         gap: 6px;
+         color: var(--primary);
+         font-size: 1rem;
+ 
+         &:hover {
+             text-decoration: underline;
+             font-weight: 700;
+         }
+     }
+ 
+     &.aside-content-container aside .arrow {
+         transform: rotate(-45deg);
+     }
+     
+     &.aside-content-container aside ul {
+         margin-top: 1rem;
+         list-style-type: none;
+         display: flex; /* Menambahkan properti display flex sebagai syarat menggunakan properti gap */
+         
+         flex-direction: column;
+         gap: 6px; /* Menambahkan gap pada hyperlink aside agar tidak terlalu mepet */
+     }
+ }
+ 
+ /* 
+ !! BMI CALCULATOR STYLING (MAIN CONTENT) !!
+ */
+ 
+ /* BMI CALCULATOR START */
+ #service {
+     margin-top: 5rem;
+ }
+ 
+ .service-content-container {
+     width: 100%;
+     display: flex;
+     justify-content: start;
+     gap: 2rem;
+ }
+ 
+ .bmi-calculator-container {
+     position: relative;
+     display: flex;
+     justify-content: start;
+     align-items: center;
+     width: 400px;
+     height: auto;
+     padding-block: 2rem;
+     background-color: var(--secondary);
+     box-shadow: 0px 0px 6px 6px #0000000a;
+     border-radius: 12px;
+     overflow: hidden;
+ }
+ 
+ .bmi-calculator-container .bmi-header {
+     position: absolute;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     top: 0;
+     width: 100%;
+     height: 50px;
+     padding-block: 12px;
+     text-align: center;
+     background-color: var(--primary);
+     
+     &.bmi-header h2 {
+         font-size: 1.2rem;
+         color: var(--secondary);
+     }
+ }
+ 
+ .bmi-calculator-content {
+     width: 100%;
+     margin-top: 50px;
+     padding-inline: 2rem;
+ 
+ }
+ 
+ form input {
+     display: block;
+     border-top: none;
+     border-inline: none;
+     border-bottom: 2px solid var(--primary);
+     width: 100%;
+     height: 30px;
+     margin-top: 0.7rem;
+     font-size: 1.1rem;
+     color: var(--primary);
+ }
+ 
+ form label {
+     color: var(--primary);
+     font-weight: 500;
+ }
+ 
+ form input:focus {
+     outline: none;
+ }
+ 
+ /* MENGUBAH WARNA BORDER SAAT VALUE FORM TIDAK VALID */
+ form #beratBadan:user-invalid {
+     border-bottom: 2px solid red;
+ }
+ 
+ form #tinggiBadan:user-invalid {
+     border-bottom: 2px solid red;
+ }
+ 
+ form input::placeholder {
+     font-size: 1.1rem;
+     opacity: 50%;
+ }
+ 
+ form {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+ }
+ 
+ #submitBmi {
+     margin-top: 6px;
+     padding-block: 10px;
+     background-color: var(--primary);
+     color: var(--secondary);
+     border-radius: 2rem;
+     font-size: 1.1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 200ms ease-in-out;
+ 
+     &:hover {
+         opacity: 80%;
+         box-shadow: 0px 0px 9px 6px #14B8A634;
+     }
+ }
+ 
+ /* MENGUBAH WARNA BORDER SAAT VALUE FORM TIDAK VALID */
+ form #beratBadan:user-invalid {
+     border-bottom: 2px solid red;
+ }
+ 
+ form #tinggiBadan:user-invalid {
+     border-bottom: 2px solid red;
+ }
+ /* BMI CALCULATOR END */
+ 
+ 
+ /* BMI RESULT START */
+ .bmi-result-container {
+     width: 300px;
+     height: fit-content;
+     max-height: 100%;
+     border-radius: 1rem;
+     padding-block: 2rem;
+     padding-inline: 1rem;
+     background-color: var(--secondary);
+     box-shadow: 0px 0px 6px 6px #0000000a;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: start;
+ }
+ 
+ .bmi-result-content {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+ }
+ 
+ .bmi-result {
+     width: fit-content;
+     padding-inline: 8px;
+     padding-block: 4px;
+     background-color: var(--primary);
+     margin-top: 2rem;
+     border-radius: 12px;
+ 
+     &.bmi-result #resultBmi {
+         font-size: 3rem;
+         color: #b5fff6;
+     }
+ }
+ 
+ #resultCategory {
+     margin-top: 1.3rem;
+     text-align: center;
+     font-size: 1.2rem;
+ }
+ 
+ #hitungUlang {
+     display: none;
+     width: 100%;
+     margin-top: 1.6rem;
+     padding-block: 10px;
+     background-color: var(--primary);
+     color: var(--secondary);
+     border-radius: 2rem;
+     font-size: 1.1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 200ms ease-in-out;
+ 
+     &:hover {
+         opacity: 80%;
+         box-shadow: 0px 0px 9px 6px #14B8A634;
+     }
+ }
+ 
+ /* BMI RESULT END */
