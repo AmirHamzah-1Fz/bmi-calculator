@@ -1,0 +1,346 @@
+/* 
+!! Inisialisasi konfigurasi awal !!
+ */
+*::before,
+*::after,
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+
+    &::selection {
+        background-color: var(--primary);
+        color: var(--secondary);
+    }
+}
+
+img, svg, a {
+    user-select: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', serif;
+    height: 300vh;
+}
+
+:root {
+    --primary: #14B8A6;
+    --secondary: #fff;
+
+    --text-fade: rgba(0, 0, 0, 40%);
+}
+
+/* 
+!! NAVBAR STYLING !!
+ */
+
+
+ /*
+ !!!!!!! MEDIA QUERIES START !!!!!!!!!!
+  */
+
+/* Ponsel */
+@media screen and (max-width: 768px) {
+    /* NAVBAR */
+    header nav {
+        padding-inline: 2rem;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    /* JUMBOTRON */
+    div .jumbotron-content h1 {
+        font-size: 2rem;
+    }
+
+    div .jumbotron-content p {
+        width: 85%;
+    }
+
+    /* MAIN CONTENT */
+    main .content-container {
+        flex-direction: column;
+        padding-inline-start: 0 !important; /* Menambahkan "!important" agar properti yang ditulis menjadi diprioritaskan */
+        padding-inline: 2rem !important;
+    }
+
+    main .main-content-container, .aside-content-container {
+        width: 100%;
+    }
+}
+  
+/*
+!!!!!!! MEDIA QUERIES END !!!!!!!!!!
+*/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 30px 0px #00000016;
+    padding-inline: 4rem;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+nav .nav-right li a {
+    text-align: end;
+    padding-inline: 12px;
+    padding-block: 6px;
+    color: var(--primary);
+    background-color: transparent;
+    transition: all 200ms ease-in-out;
+    border-radius: 12px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: var(--primary);
+        color: var(--secondary);
+    }
+}
+
+nav .nav-left li a {
+    text-align: start;
+    color: var(--primary);
+}
+
+
+/* 
+!! JUMBOTRON CONTENT STYLING !!
+*/
+
+.jumbotron {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    padding-top: 60px;
+    display: flex;
+    background-color: #14B8A6ea;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary);
+    overflow: hidden;
+}
+
+.jumbotron-bg {
+    position: absolute;
+    z-index: -100;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.jumbotron-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.jumbotron-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+}
+
+.jumbotron-content h1 {
+    font-weight: 800;
+    font-size: 4rem;
+    color: inherit;
+}
+
+.jumbotron-content p {
+    margin-top: 0.6rem;
+    color: rgba(255, 255, 255, 80%);
+}
+
+.cta-button {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    gap: 8px;
+    
+    &.cta-button a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        
+    }
+
+    &.cta-button a svg {
+        transform: rotate(-45deg);
+        transition: all 100ms ease-in-out;
+    }
+}
+
+.cta-button .about {
+    background-color: transparent;
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    padding-inline: 1.4rem;
+    padding-block: 0.7rem;
+    border-radius: 12px;
+    transition: all 400ms ease-in-out;
+    
+    &:hover {
+        border: 1px solid transparent;
+        background-color: var(--secondary);
+        color: var(--primary);
+    }
+
+    &:hover svg {
+        transform: rotate(0deg);
+    }
+}
+
+.cta-button .service {
+    background-color: var(--secondary);
+    border: 1px solid transparent;
+    color: var(--primary);
+    padding-inline: 1.4rem;
+    padding-block: 0.7rem;
+    border-radius: 12px;
+    transition: all 400ms ease-in-out;
+
+    &:hover {
+        background-color: transparent;
+        border: 1px solid var(--secondary);
+        color: var(--secondary);
+    }
+}
+
+/* 
+!! MAIN CONTENT STYLING !!
+*/
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+main .content-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    width: 100%;
+    padding-inline-start: 5rem;
+}
+
+.main-content-container {
+    width: 65%;
+
+    &.main-content-container h2 {
+        color: var(--primary);
+        font-size: 1.6rem;
+    }
+
+    &.main-content-container p {
+        font-size: 1rem;
+        margin-top: 0.6rem;
+        color: var(--text-fade);
+    }
+}
+
+/*
+!! TABLE STYLING !!
+ */
+
+table {
+    margin-top: 2rem;
+}
+
+table { 
+    border-collapse: collapse; 
+    width: 100%; 
+}
+
+th, td { 
+    border: 1px solid #00000046;
+    padding: 8px;
+    text-align: left; 
+}
+
+th {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+td {
+    color: var(--primary);
+}
+
+/* 
+!! TABLE STYLING END !!
+*/
+
+/* 
+!! ASIDE CONTENT STYLING !!
+*/
+
+.aside-content-container {
+    width: 300px;
+    height: 600px;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    
+    &.aside-content-container aside h2 {
+        color: var(--primary);
+        font-size: 1.3rem;
+    }
+
+    &.aside-content-container aside a {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--primary);
+        font-size: 1rem;
+
+        &:hover {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+    }
+
+    &.aside-content-container aside .arrow {
+        transform: rotate(-45deg);
+    }
+    
+    &.aside-content-container aside ul {
+        margin-top: 1rem;
+        list-style-type: none;
+        display: flex; /* Menambahkan properti display flex sebagai syarat menggunakan properti gap */
+        
+        flex-direction: column;
+        gap: 6px; /* Menambahkan gap pada hyperlink aside agar tidak terlalu mepet */
+    }
+}
