@@ -21,6 +21,7 @@
             <nav>
                 <!-- LEFT ITEMS -->
                 <ul class="nav-left">
+                    <div class="logo-plus"><a href="#home">&plus;</a></div>
                     <li><a href="#home"><h1>BMI Calculator+</h1></a></li>
                 </ul>
 
@@ -43,7 +44,10 @@
 
                 <!-- JUMBOTRON CONTENT -->
                 <div class="jumbotron-content">
-                    <h1>BMI Calculator+</h1>
+                    <div class="logo-plus-jumbotron-container">
+                        <div class="logo-plus-jumbotron"><a href="#home">&plus;</a></div>
+                        <h1>BMI Calculator</h1>
+                    </div>
                     <p>Pantau kesehatan berat badan Anda dengan cepat dan mudah, di mana saja.</p>
 
 
@@ -73,35 +77,37 @@
                 </article>
 
                 <!-- TABEL KLASIFIKASI BERAT BADAN -->
-                <table>
-                    <th style="color: var(--secondary);">Indeks</th>
-                    <th style="color: var(--secondary);">Kategori</th>
+                 <section id="category">
+                    <table>
+                        <th style="color: var(--secondary);">Indeks</th>
+                        <th style="color: var(--secondary);">Kategori</th>
 
-                    <tr class="underweight">
-                        <td>&lt; 18.5 kg</td>
-                        <td>Berat badan kurang (underweight)</td>
-                    </tr>
-                    <tr style="background-color: #c8f6f0;" class="ideal">
-                        <td style="color: var(--primary)">18.5kg - 25 kg</td>
-                        <td style="color: var(--primary)">Berat badan normal dan ideal</td>
-                    </tr>
-                    <tr style="background-color: transparent;" class="overweight">
-                        <td>25 - 30 kg</td>
-                        <td>Berat badan berlebih (overweight)</td>
-                    </tr>
-                    <tr class="obesitas-i">
-                        <td>30 - 35 kg</td>
-                        <td>Obesitas kelas I</td>
-                    </tr>
-                    <tr class="obesitas-ii">
-                        <td>35 - 40 kg</td>
-                        <td>Obesitas kelas II</td>
-                    </tr>
-                    <tr class="obesitas-iii">
-                        <td>&gt; 40</td>
-                        <td>Obesitas kelas III</td>
-                    </tr>
-                </table>
+                        <tr class="underweight">
+                            <td>&lt; 18.5 kg</td>
+                            <td>Berat badan kurang (underweight)</td>
+                        </tr>
+                        <tr style="background-color: #c8f6f0;" class="ideal">
+                            <td style="color: var(--primary)">18.5kg - 25 kg</td>
+                            <td style="color: var(--primary)">Berat badan normal dan ideal</td>
+                        </tr>
+                        <tr style="background-color: transparent;" class="overweight">
+                            <td>25 - 30 kg</td>
+                            <td>Berat badan berlebih (overweight)</td>
+                        </tr>
+                        <tr class="obesitas-i">
+                            <td>30 - 35 kg</td>
+                            <td>Obesitas kelas I</td>
+                        </tr>
+                        <tr class="obesitas-ii">
+                            <td>35 - 40 kg</td>
+                            <td>Obesitas kelas II</td>
+                        </tr>
+                        <tr class="obesitas-iii">
+                            <td>&gt; 40</td>
+                            <td>Obesitas kelas III</td>
+                        </tr>
+                    </table>
+                </section>
 
                 <!-- MENU UTAMA -->
                 <section id="service">
@@ -141,41 +147,61 @@
                         </div>
                     </div>
                 </section>
+
+                <article class="rumus-bmi">
+                    <h2>Rumus BMI (kg/cm)</h2>
+                    <img src="assets\img\rumus-bmi.png" alt="rumus-bmi.png" width="230px">
+                    <p>Rumus umum dari BMI adalah <b>berat badan</b> (kg) dibagi dengan <b>tinggi badan<sup>2</sup></b> (cm). <br>
+                    berat badan / (tinggi badan * tinggi badan) dalam satuan meter.</p>
+                </article>
             </div>
 
 
             <div class="aside-content-container">
                 <aside>
-                    <h2>BMI Calculator+</h2>
-                    
+                    <img src="assets\logo\bmi-logo-primary.png" alt="bmi-logo-primary.png" width="180px">
                     <!-- ASIDE NAVIGATION START -->
                     <ul>
                         <li><a href="#home">Beranda
                             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                         </li>
-                        <li><a href="#">Tentang
+                        <li><a href="#about">Tentang
                             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                         </li>
-                        <li><a href="#">Kalkulator BMI
+                        <li><a href="#service">Kalkulator BMI
                             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                         </li>
-                        <li><a href="#">Kategori Indeks
+                        <li><a href="#category">Kategori Indeks
                             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                         </li>
-                        <li><a href="#">Blog
+                        <li><a href="#blog">Blog
                             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </a>
                         </li>
                     </ul>
+
+                    <img style="margin-top: 1rem;" src="assets\img\rumus-bmi.png" alt="rumus-bmi.png" width="170px">
                     <!-- ASIDE NAVIGATION END -->
                 </aside>
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="footer-content-container">
+            <p>&copy;2024 made by <b>Amir Hamzah</b>.</p>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="./js/script.js"></script>
 </body>

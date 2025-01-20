@@ -26,7 +26,6 @@
  
  body {
      font-family: 'Inter', serif;
-     height: 300vh;
  }
  
  :root {
@@ -71,6 +70,10 @@
      nav #itemExtra {
          display: block !important;
      }
+
+     nav .nav-left {
+         font-size: 1.1rem;
+     }
  
      /* JUMBOTRON */
      .jumbotron {
@@ -102,6 +105,16 @@
          justify-content: center !important;
          align-items: center !important;
      }
+
+     /* ASIDE */
+     .aside-content-container {
+        padding-inline: 0 !important;
+     }
+
+     /* FOOTER */
+     .footer-content-container p, .footer-content-container ul {
+        font-size: 0.8rem !important;
+     }
  }
  
  /* Phone */
@@ -112,7 +125,7 @@
      }
  
      nav .nav-left {
-         font-size: 0.8rem;
+         font-size: 1rem;
      }
  
  
@@ -123,6 +136,11 @@
  
      .jumbotron {
          height: 40vh !important;
+     }
+
+     /* FOOTER */
+     .footer-content-container p, .footer-content-container ul {
+        font-size: 0.6rem !important;
      }
  }
  
@@ -149,28 +167,60 @@
      display: flex;
      align-items: center;
      list-style-type: none;
+     gap: 1rem;
  }
  
  nav .nav-right li a {
-     text-align: end;
-     padding-inline: 12px;
-     padding-block: 6px;
-     color: var(--primary);
-     background-color: transparent;
-     transition: all 200ms ease-in-out;
-     border-radius: 12px;
-     font-weight: 500;
- 
-     &:hover {
-         background-color: var(--primary);
-         color: var(--secondary);
-     }
- }
- 
+    position: relative;
+    text-align: end;
+    padding-block: 6px;
+    color: var(--primary);
+    background-color: transparent;
+    transition: all 200ms ease-in-out;
+    font-weight: 500;
+    transition: all 300ms ease-in-out;
+}
+
+ nav .nav-right li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 0%;
+    height: 10px;
+    border-bottom: 2px solid var(--primary);
+    transition: all 200ms ease-in-out;
+}
+
+nav .nav-right li a:hover::after {
+    width: 100%;
+}
+
  nav .nav-left li a {
-     text-align: start;
-     color: var(--primary);
+    font-size: 1.2rem;
+    text-align: start;
+    color: var(--primary);
  }
+
+ nav .nav-left {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+ }
+
+ /* LOGO */
+.logo-plus {
+    font-size: 1.3rem;
+    padding: 8px;
+    background-color: var(--primary);
+    font-weight: 800;
+    clip-path: circle();
+
+    &.logo-plus a {
+        color: var(--secondary);
+    }
+}
  
  nav #itemExtra {
      display: none;
@@ -180,7 +230,6 @@
          stroke: var(--primary);
      }
  }
- 
  
  /* 
  !! JUMBOTRON CONTENT STYLING !!
@@ -225,6 +274,29 @@
      text-align: center;
      z-index: 100;
  }
+
+ .logo-plus-jumbotron-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+ }
+
+ .logo-plus-jumbotron {
+    font-size: 3rem;
+    padding: 8px;
+    background-color: hsl(173, 80%, 40%);
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid hsl(173, 80%, 48%);
+    border-radius: 500px;
+
+    &.logo-plus-jumbotron a {
+        color: var(--secondary);
+    }
+}
  
  .jumbotron-content h1 {
      font-weight: 800;
@@ -234,6 +306,7 @@
  
  .jumbotron-content p {
      margin-top: 0.6rem;
+     font-size: 1.1rem;
      color: rgba(255, 255, 255, 80%);
  }
  
@@ -315,7 +388,7 @@
  }
  
  .main-content-container {
-     width: 65%;
+     width: 60%;
  
      &.main-content-container h2 {
          color: var(--primary);
@@ -325,7 +398,7 @@
      &.main-content-container p {
          font-size: 1rem;
          margin-top: 0.6rem;
-         color: #133b3774;
+         color: #133b3764;
      }
  }
  
@@ -367,9 +440,7 @@
  
  .aside-content-container {
      width: 300px;
-     height: 600px;
-     border-radius: 1rem;
-     padding: 1rem;
+     padding-inline: 1rem;
  
      
      &.aside-content-container aside h2 {
@@ -465,11 +536,12 @@
      border-top: none;
      border-inline: none;
      border-bottom: 2px solid var(--primary);
-     width: 100%;
+     width: 90%;
      height: 30px;
      margin-top: 0.7rem;
      font-size: 1.1rem;
      color: var(--primary);
+     transition: all 200ms ease-in-out;
  }
  
  form label {
@@ -479,6 +551,7 @@
  
  form input:focus {
      outline: none;
+     width: 100%;
  }
  
  /* MENGUBAH WARNA BORDER SAAT VALUE FORM TIDAK VALID */
@@ -590,5 +663,62 @@
          box-shadow: 0px 0px 9px 6px #14B8A634;
      }
  }
- 
  /* BMI RESULT END */
+
+ /* RUMUS BMI START */
+ .rumus-bmi {
+    margin-top: 6rem;
+
+    &.rumus-bmi h2 {
+        font-size: 1.2rem;
+    }
+
+    &.rumus-bmi img {
+        margin-top: 1rem;
+    }
+
+    &.rumus-bmi p {
+        width: 50%;
+        margin-top: 1rem;
+    }
+ }
+
+ /* FOOTER STYLING */
+footer {
+    margin-top: 3rem;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.footer-content-container {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+
+.footer-content-container ul {
+    display: flex;
+    list-style-type: none;
+    gap: 8px;
+
+}
+
+.footer-content-container ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-content-container ul::before {
+    content: '|';
+    margin-inline: 8px;
+}
+
+.footer-content-container ul li a {
+    color: var(--secondary);
+}

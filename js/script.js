@@ -22,7 +22,7 @@ function calculate() {
     }
 
     // Kalkulasi BMI berdasarkan rumus BMI
-    let bmi = beratBadan / (tinggiBadan * tinggiBadan);
+    const bmi = beratBadan / (tinggiBadan * tinggiBadan);
 
     // Logika perbandingan berdasarkan kategori berat badan
     let comment;
