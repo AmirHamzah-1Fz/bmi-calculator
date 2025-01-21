@@ -26,6 +26,7 @@
  
  body {
      font-family: 'Inter', serif;
+     background-color: #ffffff;
  }
  
  :root {
@@ -34,15 +35,12 @@
  
      --text-fade: rgba(0, 0, 0, 40%);
  }
- 
- /* 
- !! NAVBAR STYLING !!
-  */
- 
- 
-  /*
-  !!!!!!! MEDIA QUERIES START !!!!!!!!!!
-   */
+
+
+
+/*
+    !!!!!!! MEDIA QUERIES START !!!!!!!!!!
+*/
  
  /* Desktop */
  @media screen and (max-width: 1000px) {
@@ -106,6 +104,10 @@
          align-items: center !important;
      }
 
+     .rumus-bmi p {
+        width: 100% !important;
+     }
+
      /* ASIDE */
      .aside-content-container {
         padding-inline: 0 !important;
@@ -143,11 +145,17 @@
         font-size: 0.6rem !important;
      }
  }
- 
+
  /*
- !!!!!!! MEDIA QUERIES END !!!!!!!!!!
+    !!!!!!! MEDIA QUERIES END !!!!!!!!!!
  */
- 
+
+
+
+/* 
+    !! NAVBAR STYLING START !!
+*/
+
  nav {
      position: fixed;
      top: 0;
@@ -230,11 +238,127 @@ nav .nav-right li a:hover::after {
          stroke: var(--primary);
      }
  }
+
+
  
  /* 
- !! JUMBOTRON CONTENT STYLING !!
- */
+    HAMBURGER MENU ITEMS 
+*/
+ .navbar-menu-items {
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    width: fit-content;
+    height: 160px;
+    background-color: var(--secondary);
+    box-shadow:
+    0px 0.3px 1.3px rgba(0, 0, 0, 0.003),
+    0px 0.8px 3.5px rgba(0, 0, 0, 0.008),
+    0px 1.9px 8.4px rgba(0, 0, 0, 0.019),
+    0px 5px 28px rgba(0, 0, 0, 0.080);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+
+    &.navbar-menu-items a {
+        color: var(--text-fade);
+
+        &:hover {
+            color: var(--primary);
+        }
+    }
+ }
+
+ .navbar-menu-items.hide {
+    height: 0px !important;
+ }
+
+ nav .menu-items-container li a {
+    position: relative;
+    text-align: end;
+    padding-block: 6px;
+    color: var(--primary);
+    background-color: transparent;
+    transition: all 200ms ease-in-out;
+    font-weight: 500;
+    transition: all 300ms ease-in-out;
+}
+
+ nav .menu-items-container li a::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    display: block;
+    width: 0%;
+    height: 10px;
+    border-bottom: 1.9px solid var(--primary);
+    transition: all 200ms ease-in-out;
+}
+
+nav .menu-items-container li a:hover::after {
+    width: 100%;
+}
+
+ .menu-items-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-inline: 2.6rem;
+    padding-block: 2rem;
+ }
+
+ .navbar-menu-items .exit-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+        background-color: #14B8A6c6;
+    }
+    
+ }
  
+
+ .navbar-menu-items .menu-items-container .exit-icons svg {
+    fill: var(--primary);
+    transition: all 200ms ease-in-out;
+    transform: rotate(0deg);
+}
+
+.navbar-menu-items .exit-icons:hover svg {
+    fill: var(--secondary) !important;
+    transform: rotate(0deg);
+ }
+
+ .navbar-menu-items ul {
+    display: block;
+    line-height: 1.5rem;
+ }
+
+ /* 
+    !! NAVBAR STYLING END !!
+*/
+ 
+
+
+ /* 
+    !! JUMBOTRON CONTENT STYLING START !!
+ */
+
  .jumbotron {
      position: relative;
      width: 100%;
@@ -274,29 +398,6 @@ nav .nav-right li a:hover::after {
      text-align: center;
      z-index: 100;
  }
-
- .logo-plus-jumbotron-container {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 1rem;
- }
-
- .logo-plus-jumbotron {
-    font-size: 3rem;
-    padding: 8px;
-    background-color: hsl(173, 80%, 40%);
-    font-weight: 800;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid hsl(173, 80%, 48%);
-    border-radius: 500px;
-
-    &.logo-plus-jumbotron a {
-        color: var(--secondary);
-    }
-}
  
  .jumbotron-content h1 {
      font-weight: 800;
@@ -368,11 +469,20 @@ nav .nav-right li a:hover::after {
          color: var(--secondary);
      }
  }
+
+/* 
+    !! JUMBOTRON CONTENT STYLING END !! 
+*/
+
+
+
+/* 
+!! MAIN CONTENT STYLING START !!
+*/
  
- /* 
- !! MAIN CONTENT STYLING !!
- */
- 
+/* 
+    !! MAIN ARTICLE & CONTAINER START !!
+*/
  main {
      display: flex;
      justify-content: center;
@@ -395,16 +505,23 @@ nav .nav-right li a:hover::after {
          font-size: 1.6rem;
      }
  
-     &.main-content-container p {
+     &.main-content-container article p {
          font-size: 1rem;
+         line-height: 1.5rem;
          margin-top: 0.6rem;
          color: #133b3764;
      }
  }
- 
+
+ /* 
+    !! MAIN ARTICLE & CONTAINER END !!
+*/
+
+
+
  /*
- !! TABLE STYLING !!
-  */
+    !! TABLE STYLING START !!
+*/
  
  table {
      margin-top: 2rem;
@@ -424,18 +541,32 @@ nav .nav-right li a:hover::after {
  th {
      background-color: var(--primary);
      color: var(--secondary);
- }
- 
- td {
+    }
+    
+td {
      color: var(--primary);
  }
- 
+
+table .ideal {
+    background-color: #c8f6f0 !important;
+}
+
+tr {
+    background-color: #ffffff;
+    
+    &:hover {
+        background-color: #c8f6f040;
+    }
+ }
+
  /* 
- !! TABLE STYLING END !!
+    !! TABLE STYLING END !!
  */
- 
+
+
+
  /* 
- !! ASIDE CONTENT STYLING !!
+    !! ASIDE CONTENT STYLING START !!
  */
  
  .aside-content-container {
@@ -443,12 +574,12 @@ nav .nav-right li a:hover::after {
      padding-inline: 1rem;
  
      
-     &.aside-content-container aside h2 {
+     &.aside-content-container h2 {
          color: var(--primary);
          font-size: 1.3rem;
      }
  
-     &.aside-content-container aside a {
+     &.aside-content-container a {
          width: fit-content;
          display: flex;
          align-items: center;
@@ -458,15 +589,15 @@ nav .nav-right li a:hover::after {
  
          &:hover {
              text-decoration: underline;
-             font-weight: 700;
+             font-weight: 600;
          }
      }
  
-     &.aside-content-container aside .arrow {
+     &.aside-content-container .arrow {
          transform: rotate(-45deg);
      }
      
-     &.aside-content-container aside ul {
+     &.aside-content-container ul {
          margin-top: 1rem;
          list-style-type: none;
          display: flex; /* Menambahkan properti display flex sebagai syarat menggunakan properti gap */
@@ -475,12 +606,21 @@ nav .nav-right li a:hover::after {
          gap: 6px; /* Menambahkan gap pada hyperlink aside agar tidak terlalu mepet */
      }
  }
+
+ /*
+    !! ASIDE CONTENT STYLING END !!
+ */
  
+
+
  /* 
  !! BMI CALCULATOR STYLING (MAIN CONTENT) !!
  */
  
- /* BMI CALCULATOR START */
+ /*
+    !! BMI CALCULATOR STYLING START !! 
+*/
+
  #service {
      margin-top: 5rem;
  }
@@ -497,11 +637,15 @@ nav .nav-right li a:hover::after {
      display: flex;
      justify-content: start;
      align-items: center;
-     width: 400px;
+     width: 370px;
      height: auto;
      padding-block: 2rem;
      background-color: var(--secondary);
-     box-shadow: 0px 0px 6px 6px #0000000a;
+     box-shadow:
+     0px 0.3px 1.3px rgba(0, 0, 0, 0.003),
+     0px 0.8px 3.5px rgba(0, 0, 0, 0.008),
+     0px 1.9px 8.4px rgba(0, 0, 0, 0.019),
+     0px 5px 28px rgba(0, 0, 0, 0.070);
      border-radius: 12px;
      overflow: hidden;
  }
@@ -599,10 +743,16 @@ nav .nav-right li a:hover::after {
  form #tinggiBadan:user-invalid {
      border-bottom: 2px solid red;
  }
- /* BMI CALCULATOR END */
+
+ /* 
+    !! BMI CALCULATOR END !!
+ */
  
  
- /* BMI RESULT START */
+
+/* 
+    !! BMI RESULT START !!
+*/
  .bmi-result-container {
      width: 300px;
      height: fit-content;
@@ -611,7 +761,11 @@ nav .nav-right li a:hover::after {
      padding-block: 2rem;
      padding-inline: 1rem;
      background-color: var(--secondary);
-     box-shadow: 0px 0px 6px 6px #0000000a;
+     box-shadow:
+     0px 0.3px 1.3px rgba(0, 0, 0, 0.003),
+     0px 0.8px 3.5px rgba(0, 0, 0, 0.008),
+     0px 1.9px 8.4px rgba(0, 0, 0, 0.019),
+     0px 5px 28px rgba(0, 0, 0, 0.070);
      text-align: center;
      display: flex;
      justify-content: center;
@@ -638,6 +792,10 @@ nav .nav-right li a:hover::after {
          color: #b5fff6;
      }
  }
+
+ .bmi-result-container h3 {
+    color: var(--primary);
+ }
  
  #resultCategory {
      margin-top: 1.3rem;
@@ -663,9 +821,16 @@ nav .nav-right li a:hover::after {
          box-shadow: 0px 0px 9px 6px #14B8A634;
      }
  }
- /* BMI RESULT END */
 
- /* RUMUS BMI START */
+/*
+    !! BMI RESULT END !!
+*/
+
+
+
+ /* 
+    !! RUMUS BMI START !! 
+ */
  .rumus-bmi {
     margin-top: 6rem;
 
@@ -678,12 +843,63 @@ nav .nav-right li a:hover::after {
     }
 
     &.rumus-bmi p {
+        color: var(--text-fade);
         width: 50%;
         margin-top: 1rem;
+        line-height: 1.5rem !important;
     }
  }
 
- /* FOOTER STYLING */
+/* 
+    !! RUMUS BMI END !!
+*/
+
+
+
+/* 
+    !! BMI TIPS START !!
+*/
+
+.bmi-tips {
+    width: 100%;
+    margin-top: 3rem;
+
+    &p {
+        margin-top: 1rem;
+    }
+
+    &.bmi-tips .list {
+        color: var(--primary) !important;
+        font-weight: 600;
+    }
+
+    &.bmi-tips ol {
+        list-style-position: inside;
+        color: var(--text-fade);
+    }
+}
+
+.bmi-tips ul {
+    list-style-position: inside;
+    margin-block: 1rem;
+    line-height: 1.5rem;
+    list-style-type: disc;
+}
+
+/* 
+    !! BMI TIPS END !!
+*/
+
+/* 
+    !! MAIN CONTENT STYLING END !!
+*/
+
+
+
+/*
+    !! FOOTER STYLING START !!
+*/
+
 footer {
     margin-top: 3rem;
     width: 100%;
@@ -699,7 +915,7 @@ footer {
     width: fit-content;
     display: flex;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 
@@ -722,3 +938,7 @@ footer {
 .footer-content-container ul li a {
     color: var(--secondary);
 }
+
+/* 
+    !!! BODY END !!! 
+*/

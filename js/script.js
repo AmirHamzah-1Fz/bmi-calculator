@@ -40,8 +40,8 @@ function calculate() {
         comment = "Obesitas Tingkat III"
     }
 
-    // Jika hasil BMI lebih dari 100 "OR" BMI kurang dari 10 "OR" value berat badan dari user sama dengan nol atau NaN, tampilkan peringatan untuk memasukkan angka yang valid
-    if(bmi > 100 || bmi < 10 || beratBadan == 0){
+    // Jika hasil BMI lebih dari 200 "OR" BMI kurang dari 10 "OR" value berat badan dari user sama dengan nol atau NaN, tampilkan peringatan untuk memasukkan angka yang valid
+    if(bmi > 200 || bmi < 10 || beratBadan == 0){
         alert("Masukkan angka yang valid");
         return;
     }
