@@ -72,7 +72,16 @@
      nav .nav-left {
          font-size: 1.1rem;
      }
- 
+
+     nav .nav-left li a h1 {
+        font-size: 1.3rem !important;
+     }
+
+     nav .item-extra li svg {
+        width: 32px !important;
+        height: 32px !important;
+     }
+
      /* JUMBOTRON */
      .jumbotron {
          height: 50vh !important;
@@ -129,6 +138,10 @@
      nav .nav-left {
          font-size: 1rem;
      }
+  
+     nav .nav-left li a h1 {
+        font-size: 1.2rem !important;
+     }
  
  
      /* JUMBOTRON */
@@ -144,6 +157,7 @@
      .footer-content-container p, .footer-content-container ul {
         font-size: 0.6rem !important;
      }
+
  }
 
  /*
@@ -248,7 +262,7 @@ nav .nav-right li a:hover::after {
     position: absolute;
     top: 70px;
     right: 2rem;
-    width: fit-content;
+    width: 180px;
     height: 160px;
     background-color: var(--secondary);
     box-shadow:
@@ -305,7 +319,7 @@ nav .menu-items-container li a:hover::after {
  .menu-items-container {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -332,7 +346,6 @@ nav .menu-items-container li a:hover::after {
     
  }
  
-
  .navbar-menu-items .menu-items-container .exit-icons svg {
     fill: var(--primary);
     transition: all 200ms ease-in-out;
